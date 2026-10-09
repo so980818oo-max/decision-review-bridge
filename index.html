@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <title>Decision Review Bridge — VALORANT post-match coaching</title>
+    <meta name="description" content="An opt-in, read-only VALORANT coaching service focused on post-match decisions, positioning, utility, and economy.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Decision Review Bridge home">
+        <span class="brand-mark" aria-hidden="true">DR</span>
+        <span>Decision Review Bridge</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#review">Review demo</a>
+        <a href="#method">Method</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+      <span class="status"><span aria-hidden="true"></span> Public prototype</span>
+    </header>
+
+    <main id="top">
+      <section class="intro" aria-labelledby="intro-title">
+        <div>
+          <p class="eyebrow">POST-MATCH COACHING FOR VALORANT</p>
+          <h1 id="intro-title">Review the decision,<br>not just the result.</h1>
+          <p class="lede">An opt-in service that turns your own official match data into a short, practical review of positioning, rotations, utility timing, economy, and team coordination.</p>
+          <div class="actions">
+            <button class="primary" id="connect-button" type="button">Connect Riot account</button>
+            <a class="secondary" href="#review">Open sample review</a>
+          </div>
+          <p class="fine-print">Demo only. Riot Sign On and live match access become available after Riot production approval.</p>
+        </div>
+        <ol class="flow" aria-label="Product flow">
+          <li><span>01</span><div><strong>Connect</strong><small>Authorize your own Riot account</small></div></li>
+          <li><span>02</span><div><strong>Choose</strong><small>Select a completed match</small></div></li>
+          <li><span>03</span><div><strong>Reflect</strong><small>Review three decisions at a time</small></div></li>
+        </ol>
+      </section>
+
+      <section class="review-shell" id="review" aria-labelledby="review-title">
+        <aside class="match-list" aria-label="Sample matches">
+          <div class="section-label">DEMO MATCHES</div>
+          <button class="match active" type="button" data-match="ascent"><span><strong>Ascent</strong><small>Competitive · 34m</small></span><b class="loss">11–13</b></button>
+          <button class="match" type="button" data-match="lotus"><span><strong>Lotus</strong><small>Competitive · 29m</small></span><b class="win">13–8</b></button>
+          <button class="match" type="button" data-match="sunset"><span><strong>Sunset</strong><small>Competitive · 37m</small></span><b class="loss">10–13</b></button>
+          <div class="privacy-note"><strong>Opt-in only</strong><br>No opponent scouting. No public profiles. No live-game advice.</div>
+        </aside>
+
+        <article class="review-panel">
+          <header class="review-header">
+            <div><p class="eyebrow">SAMPLE REVIEW</p><h2 id="review-title"><span id="map-name">Ascent</span> · Omen</h2><p id="match-summary">11–13 loss · Controller · 17 / 16 / 9</p></div>
+            <div class="score-card"><span>Focus score</span><strong id="focus-score">64</strong><small>/ 100</small></div>
+          </header>
+
+          <div class="round-tabs" role="tablist" aria-label="Decision moments">
+            <button class="round-tab active" role="tab" aria-selected="true" data-round="0">Round 4</button>
+            <button class="round-tab" role="tab" aria-selected="false" data-round="1">Round 12</button>
+            <button class="round-tab" role="tab" aria-selected="false" data-round="2">Round 21</button>
+          </div>
+
+          <div class="decision-grid">
+            <section class="decision-main" aria-live="polite">
+              <div class="moment-meta"><span id="round-side">DEFENSE</span><span id="round-clock">0:54</span><span id="round-economy">FULL BUY</span></div>
+              <h3 id="decision-title">You gave up mid information too early.</h3>
+              <p id="decision-detail">After the first smoke faded, you rotated from Market without a teammate replacing the angle. The attackers gained Catwalk and split B before your team could rebuild its crossfire.</p>
+              <div class="choice-row">
+                <div><span>YOUR CHOICE</span><strong id="your-choice">Early rotate to B</strong></div>
+                <div><span>BETTER OPTION</span><strong id="better-choice">Hold Market for 8 seconds</strong></div>
+              </div>
+            </section>
+            <aside class="coach-note"><span>COACHING PROMPT</span><p id="coach-prompt">What information proved the B hit was committed—and what information were you giving up by rotating?</p></aside>
+          </div>
+
+          <div class="metrics" aria-label="Sample match metrics">
+            <div><span>First deaths</span><strong id="metric-one">4</strong><small>2 avoidable</small></div>
+            <div><span>Utility before death</span><strong id="metric-two">71%</strong><small>target 85%</small></div>
+            <div><span>Trade proximity</span><strong id="metric-three">63%</strong><small>+8% vs recent</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="method" id="method" aria-labelledby="method-title">
+        <div><p class="eyebrow">COACHING METHOD</p><h2 id="method-title">Three decisions.<br>One habit to test next.</h2></div>
+        <div class="method-copy">
+          <p>The service deliberately avoids overwhelming score dumps. Each review selects a few high-impact moments, explains the available information, compares the choice made with a realistic alternative, and ends with one question for the player.</p>
+          <ul><li>Official Riot APIs only</li><li>Completed matches only</li><li>Account-owner opt-in through RSO</li><li>Read-only processing; no gameplay automation</li></ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Independent product. Not endorsed by Riot Games. VALORANT and Riot Games are trademarks of Riot Games, Inc.</p>
+      <div><a href="privacy.html">Privacy notice</a><a href="terms.html">Terms of use</a></div>
+    </footer>
+
+    <dialog id="rso-dialog">
+      <button class="dialog-close" id="dialog-close" aria-label="Close" type="button">×</button>
+      <p class="eyebrow">RSO DEMO STATE</p>
+      <h2>Account connection is pending Riot approval.</h2>
+      <p>In production, this button redirects to Riot Sign On. The player authorizes access on Riot's page, then returns here to choose one of their own completed matches.</p>
+      <button class="primary" id="dialog-review" type="button">Continue with sample data</button>
+    </dialog>
+  </body>
+</html>
